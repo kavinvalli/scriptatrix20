@@ -1,0 +1,55 @@
+{% load static %}
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <img src="" width="30" height="30" class="d-inline-block align-top"
+            alt="">
+        <strong class="logo">Scripatrix</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {{home}}">
+                <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item {{product}}">
+                <a class="nav-link" href="#">Product</a>
+            </li>
+            <li class="nav-item {{pricing}}">
+                <a class="nav-link" href="#">Pricing</a>
+            </li>
+            <li class="nav-item {{discussion}}">
+                <a class="nav-link" href="#">Discussion</a>
+            </li>
+            <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Blogs
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Blogs</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li> -->
+            <li class="nav-item {{contact}}">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+        {% ifequal user True %}
+        <a class="btn btn-outline-light navbar-right-btn" href="/authentication/logout"
+            role="button">Logout</a>
+        {% else %}
+        <form class="form-inline my-2 my-lg-0">
+            <a class="btn btn-outline-light navbar-right-btn" href="/authentication/" role="button">Sign
+                In</a>
+            <a class="btn btn-outline-light navbar-right-btn" href="/authentication/registration" role="button">Get
+                Onboard</a>
+        </form>
+        {% endifequal %}
+    </div>
+</nav>
