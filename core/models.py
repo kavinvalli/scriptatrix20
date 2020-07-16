@@ -11,3 +11,9 @@ class Answer(models.Model):
     posted_by_user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='answer_posted_by_user')
     question = models.ForeignKey(Question, on_delete=models.CASCADE, related_name='answer_question')
     text = models.CharField(max_length=10000)
+
+class StayTuned(models.Model):
+    email = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.email
